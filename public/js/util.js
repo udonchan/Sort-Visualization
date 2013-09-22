@@ -1,6 +1,21 @@
 delete $;
 
 Object.defineProperty(
+    Array.prototype, "swap", {
+        value : function(i, j){
+            if(this[i] !== undefined || this[j] !== undefined){
+                var tmp = this[i];
+                this[i] = this[j];
+                this[j] = tmp;
+            }
+            return this;
+        },
+        writable : true,
+        configurable : true,
+        enumerable : false
+    });
+
+Object.defineProperty(
     Array.prototype, "sample", {
         value : function(num){
             num = num === undefined ? 1 : num;
